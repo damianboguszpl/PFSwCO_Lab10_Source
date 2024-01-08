@@ -41,7 +41,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: damianboguszpl66/lab10-app:${{ needs.appVersion.outputs.version_number }}
+          tags: damianboguszpl66/lab10-app:${{ needs.appVersion.outputs.version_number}}
 
   kubernetesCI:
     needs: [appVersion, dockerCI]

@@ -41,7 +41,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: damianboguszpl66/lab10-app:${{ needs.appVersion.outputs.version_number}}
+          tags: damianboguszpl66/lab10-app:${{ needs.appVersion.outputs.version_number }}
 
   kubernetesCI:
     needs: [appVersion, dockerCI]
@@ -53,7 +53,7 @@ jobs:
           repository: damianboguszpl/PFSwCO_Lab10_Config
           token: ${{ secrets.ACTIONS_TOKEN }}
       - run: |
-          sed -i 's/damianboguszpl66\/lab10-app:.*/Damian\/lab10-app:${{ needs.appVersion.outputs.version_number }}/g' lab10-deployment.yaml
+          sed -i 's/damianboguszpl66\/lab10-app:.*/damianboguszpl66\/lab10-app:${{ needs.appVersion.outputs.version_number }}/g' lab10-deployment.yaml
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add -u
